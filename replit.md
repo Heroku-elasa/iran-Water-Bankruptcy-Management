@@ -49,9 +49,66 @@ To enable AI-powered features, set the `API_KEY` environment variable with your 
 
 ## Deployment
 
-The project is configured for static deployment:
-- Build command: `npm run build`
-- Output directory: `dist`
+The project is configured for static deployment on multiple platforms:
+
+### Build Settings (All Platforms)
+- **Build command**: `npm run build`
+- **Output directory**: `dist`
+
+---
+
+### Cloudflare Pages Deployment
+
+| File | Purpose |
+|------|---------|
+| `wrangler.json` | **Cloudflare Workers/Pages config** - Defines project name, compatibility date, and static assets directory |
+| `dist/` | Built static files served by Cloudflare Pages |
+
+**Cloudflare Setup:**
+1. Connect your GitHub repo to Cloudflare Pages
+2. Build command: `npm run build`
+3. Build output directory: `dist`
+4. The `wrangler.json` is auto-detected for configuration
+
+---
+
+### Render Deployment
+
+| File | Purpose |
+|------|---------|
+| `render.yaml` | **Render config** - Auto-detected deployment configuration for Render.com |
+| `package.json` | Contains build scripts (`npm run build`) |
+| `dist/` | Output folder to serve as static site |
+| `public/_redirects` | SPA redirect rules for client-side routing |
+
+**Render Setup:**
+1. Create a new **Static Site** on Render
+2. Connect your GitHub repo - `render.yaml` will be auto-detected
+3. Or manually set: Build command: `npm run build`, Publish directory: `dist`
+4. Add environment variable: `API_KEY` (for AI features)
+
+---
+
+### Environment Variables (Both Platforms)
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `API_KEY` | Optional | Google Gemini API key for AI-powered chat features |
+
+---
+
+### File Reference Summary
+
+```
+/
+├── wrangler.json        # CLOUDFLARE ONLY - Workers/Pages configuration
+├── render.yaml          # RENDER ONLY - Static site deployment config
+├── public/_redirects    # RENDER/NETLIFY - SPA routing redirects
+├── package.json         # ALL PLATFORMS - Build scripts and dependencies
+├── vite.config.ts       # ALL PLATFORMS - Vite bundler configuration
+├── dist/                # ALL PLATFORMS - Built output (after npm run build)
+└── index.html           # ALL PLATFORMS - Entry point HTML
+```
 
 ## Features
 
