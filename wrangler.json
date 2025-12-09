@@ -1,10 +1,15 @@
 {
   "$schema": "https://raw.githubusercontent.com/cloudflare/workers-sdk/main/packages/wrangler/config-schema.json",
-  "_comment": "CLOUDFLARE PAGES CONFIG - This file is ONLY used by Cloudflare Workers/Pages deployment",
+  "_comment": "CLOUDFLARE PAGES CONFIG - Deploy to Cloudflare Pages with D1 database",
   "name": "iran-water-bankruptcy-management",
   "compatibility_date": "2025-12-09",
-  "assets": {
-    "_comment": "Serves static files from the dist folder after running npm run build",
-    "directory": "./dist"
-  }
+  "pages_build_output_dir": "./dist",
+  "d1_databases": [
+    {
+      "_comment": "D1 Database binding - Create database in Cloudflare Dashboard first",
+      "binding": "DB",
+      "database_name": "water-news-db",
+      "database_id": "YOUR_DATABASE_ID_HERE"
+    }
+  ]
 }
