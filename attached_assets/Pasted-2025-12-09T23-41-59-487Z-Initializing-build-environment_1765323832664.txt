@@ -1,0 +1,52 @@
+2025-12-09T23:41:59.487Z	Initializing build environment...
+2025-12-09T23:42:01.470Z	Success: Finished initializing build environment
+2025-12-09T23:42:01.949Z	Cloning repository...
+2025-12-09T23:42:03.687Z	Restoring from dependencies cache
+2025-12-09T23:42:03.689Z	Restoring from build output cache
+2025-12-09T23:42:06.466Z	Detected the following tools from environment: nodejs@20.19.6, npm@10.9.2
+2025-12-09T23:42:06.467Z	Installing nodejs 20.19.6
+2025-12-09T23:42:07.154Z	Success: Dependencies restored from build cache.
+2025-12-09T23:42:19.166Z	Installing project dependencies: npm clean-install --progress=false
+2025-12-09T23:42:21.756Z	npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
+2025-12-09T23:42:25.178Z	
+2025-12-09T23:42:25.178Z	added 179 packages, and audited 180 packages in 6s
+2025-12-09T23:42:25.178Z	
+2025-12-09T23:42:25.178Z	26 packages are looking for funding
+2025-12-09T23:42:25.178Z	  run `npm fund` for details
+2025-12-09T23:42:25.193Z	
+2025-12-09T23:42:25.193Z	2 moderate severity vulnerabilities
+2025-12-09T23:42:25.193Z	
+2025-12-09T23:42:25.193Z	To address all issues (including breaking changes), run:
+2025-12-09T23:42:25.193Z	  npm audit fix --force
+2025-12-09T23:42:25.193Z	
+2025-12-09T23:42:25.193Z	Run `npm audit` for details.
+2025-12-09T23:42:25.351Z	Executing user build command: npm install && npm run build
+2025-12-09T23:42:26.122Z	
+2025-12-09T23:42:26.122Z	up to date, audited 180 packages in 578ms
+2025-12-09T23:42:26.122Z	
+2025-12-09T23:42:26.123Z	26 packages are looking for funding
+2025-12-09T23:42:26.123Z	  run `npm fund` for details
+2025-12-09T23:42:26.140Z	
+2025-12-09T23:42:26.140Z	2 moderate severity vulnerabilities
+2025-12-09T23:42:26.140Z	
+2025-12-09T23:42:26.140Z	To address all issues (including breaking changes), run:
+2025-12-09T23:42:26.140Z	  npm audit fix --force
+2025-12-09T23:42:26.140Z	
+2025-12-09T23:42:26.140Z	Run `npm audit` for details.
+2025-12-09T23:42:26.386Z	
+2025-12-09T23:42:26.386Z	> abbaan-water-management@1.0.0 build
+2025-12-09T23:42:26.386Z	> tsc && vite build
+2025-12-09T23:42:26.386Z	
+2025-12-09T23:42:30.380Z	functions/api/news.ts(12,7): error TS2552: Cannot find name 'D1Database'. Did you mean 'IDBDatabase'?
+2025-12-09T23:42:30.381Z	functions/api/news.ts(26,25): error TS2304: Cannot find name 'PagesFunction'.
+2025-12-09T23:42:30.381Z	functions/api/news.ts(26,53): error TS7006: Parameter 'context' implicitly has an 'any' type.
+2025-12-09T23:42:30.382Z	functions/api/news.ts(67,26): error TS2347: Untyped function calls may not accept type arguments.
+2025-12-09T23:42:30.382Z	functions/api/scrape.ts(10,7): error TS2552: Cannot find name 'D1Database'. Did you mean 'IDBDatabase'?
+2025-12-09T23:42:30.382Z	functions/api/scrape.ts(97,25): error TS2304: Cannot find name 'PagesFunction'.
+2025-12-09T23:42:30.382Z	functions/api/scrape.ts(97,53): error TS7006: Parameter 'context' implicitly has an 'any' type.
+2025-12-09T23:42:30.382Z	functions/api/scrape.ts(119,27): error TS2347: Untyped function calls may not accept type arguments.
+2025-12-09T23:42:30.382Z	functions/api/sources.ts(8,7): error TS2552: Cannot find name 'D1Database'. Did you mean 'IDBDatabase'?
+2025-12-09T23:42:30.382Z	functions/api/sources.ts(20,25): error TS2304: Cannot find name 'PagesFunction'.
+2025-12-09T23:42:30.382Z	functions/api/sources.ts(20,53): error TS7006: Parameter 'context' implicitly has an 'any' type.
+2025-12-09T23:42:30.382Z	functions/api/sources.ts(35,26): error TS2347: Untyped function calls may not accept type arguments.
+2025-12-09T23:42:30.892Z	Failed: error occurred while running build command
