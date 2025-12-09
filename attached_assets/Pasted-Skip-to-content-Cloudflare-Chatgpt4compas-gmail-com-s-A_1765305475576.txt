@@ -1,0 +1,85 @@
+Skip to content
+Cloudflare
+Chatgpt4compas@gmail.com's Account
+
+
+
+Workers & Pages
+iran-water-bankruptcy-management
+Overview
+Metrics
+Deployments
+Bindings
+Observability
+Settings
+Latest build failed
+ Back to builds
+Build details
+Repository
+
+Heroku-elasa/iran-Water-Bankruptcy-Management
+Status
+
+5 minutes ago
+Branch
+main
+471a1e2
+Saved progress at the end of the loop Replit-Commit-Author: Agent Replit-Commit-Session-Id: 97c8bdfa-dfd3-40d8-8167-47c9deaf3b98 Replit-Commit-Checkpoint-Type: full_checkpoint Replit-Commit-Event-Id: 3466ed82-1fac-455f-b139-089f83390926 Replit-Commit-Screenshot-Url: https://storage.googleapis.com/screenshot-production-us-central1/75b0a104-644f-4981-b3ac-a450aba5f687/97c8bdfa-dfd3-
+Duration
+8s
+Build settings
+Build command
+npm run build
+Deploy command
+npx wrangler deploy
+Root directory
+/
+Build token
+iran-water-bankruptcy-management build token
+Environment variables
+Variable name	Value
+API_KEY
+Value encrypted
+VITE_API_KEY
+Value encrypted
+Build log
+Initializing build environment
+3s
+Cloning git repository
+< 1s
+Installing tools and dependencies
+4s
+Building application
+—
+Deploying to Cloudflare's global network
+—
+
+Download log
+
+Copy log
+22:02:52.871	npm error
+22:02:52.871	npm error Usage:
+22:02:52.872	npm error npm ci
+22:02:52.872	npm error
+22:02:52.872	npm error Options:
+22:02:52.872	npm error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]
+22:02:52.872	npm error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]
+22:02:52.873	npm error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]
+22:02:52.873	npm error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts] [--no-audit]
+22:02:52.873	npm error [--no-bin-links] [--no-fund] [--dry-run]
+22:02:52.873	npm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]
+22:02:52.873	npm error [-ws|--workspaces] [--include-workspace-root] [--install-links]
+22:02:52.874	npm error
+22:02:52.874	npm error aliases: clean-install, ic, install-clean, isntall-clean
+22:02:52.874	npm error
+22:02:52.874	npm error Run "npm help ci" for more info
+22:02:52.874	npm error A complete log of this run can be found in: /opt/buildhome/.npm/_logs/2025-12-09T18_32_51_065Z-debug-0.log
+22:02:52.933	Failed: error occurred while installing tools or dependencies
+Support
+System status
+Careers
+Terms of Use
+Report Security Issues
+Privacy Policy
+A blue and white pill with a checkmark and an x, representing privacy choicesCookie Preferences
+© 2025 Cloudflare, Inc.
