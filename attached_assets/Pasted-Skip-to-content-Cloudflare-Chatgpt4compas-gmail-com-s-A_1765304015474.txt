@@ -1,0 +1,83 @@
+Skip to content
+Cloudflare
+Chatgpt4compas@gmail.com's Account
+
+
+
+Workers & Pages
+iran-water-bankruptcy-management
+Overview
+Metrics
+Deployments
+Bindings
+Observability
+Settings
+Latest build failed
+ Back to builds
+Build details
+Repository
+
+Heroku-elasa/iran-Water-Bankruptcy-Management
+Status
+
+20 minutes ago
+Branch
+main
+Duration
+13s
+Build settings
+Build command
+npm run build
+Deploy command
+npx wrangler deploy
+Root directory
+/
+Build token
+iran-water-bankruptcy-management build token
+Environment variables
+Variable name	Value
+API_KEY
+Value encrypted
+VITE_API_KEY
+Value encrypted
+Build log
+Initializing build environment
+3s
+Cloning git repository
+< 1s
+Installing tools and dependencies
+3s
+Building application
+7s
+Deploying to Cloudflare's global network
+—
+
+Download log
+
+Copy log
+21:23:36.521	+ react-dom@18.3.1 (v19.2.1 available)
+21:23:36.521	+ react-leaflet@4.2.1 (v5.0.0 available)
+21:23:36.521	+ recharts@2.15.4 (v3.5.1 available)
+21:23:36.521	
+21:23:36.522	111 packages installed [2.33s]
+21:23:36.735	Executing user build command: npm run build
+21:23:37.309	
+21:23:37.310	> abbaan-water-management@1.0.0 build
+21:23:37.310	> tsc && vite build
+21:23:37.310	
+21:23:41.825	Sidebar.tsx(3,34): error TS2307: Cannot find module '../constants' or its corresponding type declarations.
+21:23:41.825	Sidebar.tsx(4,29): error TS2307: Cannot find module '../contexts/LanguageContext' or its corresponding type declarations.
+21:23:41.826	Sidebar.tsx(101,36): error TS7006: Parameter 'stat' implicitly has an 'any' type.
+21:23:41.828	Sidebar.tsx(101,42): error TS7006: Parameter 'idx' implicitly has an 'any' type.
+21:23:41.828	services/geminiService.ts(2,29): error TS2307: Cannot find module '@google/genai' or its corresponding type declarations.
+21:23:41.828	services/geminiService.ts(7,38): error TS2580: Cannot find name 'process'. Do you need to install type definitions for node? Try `npm i --save-dev @types/node`.
+21:23:41.829	vite.config.ts(4,21): error TS2307: Cannot find module 'process' or its corresponding type declarations.
+21:23:41.890	Failed: error occurred while running build command
+Support
+System status
+Careers
+Terms of Use
+Report Security Issues
+Privacy Policy
+A blue and white pill with a checkmark and an x, representing privacy choicesCookie Preferences
+© 2025 Cloudflare, Inc.

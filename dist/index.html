@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AbBaan | سامانه مدیریت تنش آبی</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Vazirmatn', 'ui-sans-serif', 'system-ui'],
+              heading: ['Vazirmatn', 'ui-serif', 'Georgia'],
+            },
+            colors: {
+              'brand-black': '#1e293b',
+              'brand-green': '#0ea5e9', // Changed to Sky Blue
+              'brand-purple': '#4f46e5',
+              'sage-1': '#f0f9ff', // Light Blue
+              'sage-2': '#e0f2fe',
+              'sage-3': '#bae6fd',
+              'sage-5': '#0284c7',
+              'green-high': '#7dd3fc',
+              'yellow-high': '#fde047',
+              'blue-high': '#38bdf8',
+              'red-high': '#fda4af',
+              'red-low': '#ffe4e6',
+            },
+            boxShadow: {
+              'soft': '0 4px 20px rgba(14, 165, 233, 0.05)',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        font-family: 'Vazirmatn', sans-serif;
+        background-color: #f0f9ff;
+        color: #1e293b;
+      }
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #e0f2fe;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #0284c7;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #0369a1;
+      }
+      /* Leaflet Fixes */
+      .leaflet-container {
+        font-family: 'Vazirmatn', sans-serif !important;
+        z-index: 10;
+      }
+    </style>
+
+<link rel="stylesheet" href="/index.css">
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "vite": "https://aistudiocdn.com/vite@^7.2.7",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.2",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0",
+    "react-leaflet": "https://aistudiocdn.com/react-leaflet@^5.0.0",
+    "leaflet": "https://aistudiocdn.com/leaflet@^1.9.4",
+    "recharts": "https://aistudiocdn.com/recharts@^3.5.1",
+    "process": "https://aistudiocdn.com/process@^0.11.10"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/assets/index-C1ymklWp.js"></script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
