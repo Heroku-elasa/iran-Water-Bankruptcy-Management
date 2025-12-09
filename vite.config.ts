@@ -1,7 +1,5 @@
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
-// FIX: Import process to resolve TypeScript type error for process.cwd()
-import process from 'process';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -9,9 +7,12 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [react()],
     define: {
-      // FIX: Expose the API_KEY to client-side code for the @google/genai SDK,
-      // as per guidelines. The proxy is no longer needed.
       'process.env.API_KEY': JSON.stringify(env.API_KEY),
+    },
+    server: {
+      host: '0.0.0.0',
+      port: 5000,
+      allowedHosts: true,
     },
   };
 });
