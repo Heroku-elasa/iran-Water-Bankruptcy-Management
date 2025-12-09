@@ -4,6 +4,43 @@ This document contains ALL configuration details for deploying this application 
 
 ---
 
+## Architecture Overview
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                         USER BROWSER                            │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                    FRONTEND (Static SPA)                        │
+│                                                                 │
+│  Hosting Options:                                               │
+│  • Cloudflare Pages (wrangler.json)                            │
+│  • Render Static Site (render.yaml)                            │
+│  • Netlify, Vercel, etc.                                       │
+│                                                                 │
+│  Files: React + TypeScript + Vite → dist/                      │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              │ API Calls (fetch)
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                    BACKEND (Python API)                         │
+│                                                                 │
+│  Hosting: Render Web Service (backend/render.yaml)             │
+│                                                                 │
+│  Features:                                                      │
+│  • News scraping from RSS feeds                                │
+│  • Keyword filtering for water management                      │
+│  • REST API endpoints                                          │
+│                                                                 │
+│  Files: Flask + newspaper3k + feedparser                       │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
 ## Project Overview
 
 - **Project Name**: Abbaan Water Management System (آب‌بان)
@@ -281,6 +318,8 @@ The single HTML file that loads the React application.
 
 # FILE REFERENCE - QUICK LOOKUP
 
+## Frontend Files
+
 | File | Platform | Purpose | Must Edit? |
 |------|----------|---------|------------|
 | `wrangler.json` | Cloudflare ONLY | Workers/Pages deployment config | Only if changing project name |
@@ -290,6 +329,15 @@ The single HTML file that loads the React application.
 | `vite.config.ts` | ALL | Bundler settings | Only for build customization |
 | `index.html` | ALL | HTML entry point | Only for meta tags/title |
 | `tsconfig.json` | ALL | TypeScript compiler settings | Rarely |
+
+## Backend Files (Python API)
+
+| File | Platform | Purpose | Must Edit? |
+|------|----------|---------|------------|
+| `backend/app.py` | Render Web Service | Flask API with news scraping | Add/modify endpoints |
+| `backend/requirements.txt` | Render | Python dependencies | Add new packages |
+| `backend/render.yaml` | Render ONLY | Backend web service config | Change name/region |
+| `backend/README.md` | Documentation | Backend setup guide | No |
 
 ---
 
@@ -316,6 +364,115 @@ The single HTML file that loads the React application.
 - [ ] `render.yaml` auto-detected OR set manually
 - [ ] Add environment variables
 - [ ] Deploy
+
+---
+
+# PYTHON BACKEND DEPLOYMENT (Render)
+
+The backend is a Python Flask API that scrapes water management news. Deploy it to Render as a **Web Service**.
+
+## Backend Folder Structure
+
+```
+backend/
+├── app.py              # Flask API with scraping logic
+├── requirements.txt    # Python dependencies
+├── render.yaml         # Render deployment config
+└── README.md           # Backend documentation
+```
+
+---
+
+## Configuration File: `backend/render.yaml`
+
+```yaml
+services:
+  - type: web
+    name: abbaan-news-api
+    runtime: python
+    region: frankfurt
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"
+    healthCheckPath: /health
+```
+
+### Field Explanations:
+
+| Field | Value | Purpose | Required |
+|-------|-------|---------|----------|
+| `type` | `web` | Web service (not static site) - runs Python code | **Required** |
+| `name` | `abbaan-news-api` | Service name, used in URL: `abbaan-news-api.onrender.com` | **Required** |
+| `runtime` | `python` | Use Python runtime (not Node, Docker, etc.) | **Required** |
+| `region` | `frankfurt` | Server location - choose closest to users | Optional |
+| `plan` | `free` | Pricing tier - free has cold starts | Optional |
+| `buildCommand` | `pip install -r requirements.txt` | Install Python packages before starting | **Required** |
+| `startCommand` | `gunicorn app:app --bind 0.0.0.0:$PORT` | Production server command. Uses gunicorn (not Flask dev server) | **Required** |
+| `envVars` | Python version | Environment variables for the service | Optional |
+| `healthCheckPath` | `/health` | Render pings this endpoint to verify app is running | Recommended |
+
+---
+
+## Configuration File: `backend/requirements.txt`
+
+```
+flask==3.0.0
+flask-cors==4.0.0
+feedparser==6.0.10
+newspaper3k==0.2.8
+lxml==5.1.0
+lxml_html_clean==0.1.0
+gunicorn==21.2.0
+```
+
+### Package Explanations:
+
+| Package | Purpose |
+|---------|---------|
+| `flask` | Web framework for API endpoints |
+| `flask-cors` | Enables cross-origin requests from frontend |
+| `feedparser` | Parses RSS feeds from news sources |
+| `newspaper3k` | Extracts article content from URLs |
+| `lxml` | XML/HTML parsing (required by newspaper3k) |
+| `gunicorn` | Production WSGI server (better than Flask dev server) |
+
+---
+
+## API Endpoints
+
+| Endpoint | Method | Description | Example |
+|----------|--------|-------------|---------|
+| `/` | GET | API info | `curl https://api.example.com/` |
+| `/health` | GET | Health check | Returns `{"status": "healthy"}` |
+| `/sources` | GET | List RSS sources | Returns source names and keywords |
+| `/news` | GET | Get news articles | `?limit=10&region=Iran` |
+
+### `/news` Query Parameters:
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `limit` | int | 10 | Max articles per source |
+| `region` | string | all | Filter: "Iran" or "Middle East" |
+
+---
+
+## Connecting Frontend to Backend
+
+After deploying backend, add this environment variable to your frontend:
+
+| Variable | Example Value |
+|----------|---------------|
+| `VITE_NEWS_API_URL` | `https://abbaan-news-api.onrender.com` |
+
+Frontend code to fetch news:
+```javascript
+const API_URL = import.meta.env.VITE_NEWS_API_URL;
+const response = await fetch(`${API_URL}/news?region=Iran&limit=5`);
+const data = await response.json();
+```
 
 ---
 

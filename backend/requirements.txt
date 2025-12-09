@@ -1,0 +1,7 @@
+flask==3.0.0
+flask-cors==4.0.0
+feedparser==6.0.10
+newspaper3k==0.2.8
+lxml==5.1.0
+lxml_html_clean==0.1.0
+gunicorn==21.2.0

@@ -1,0 +1,15 @@
+# RENDER BACKEND DEPLOYMENT CONFIG
+# This file deploys the Python news scraping API to Render.com
+
+services:
+  - type: web
+    name: abbaan-news-api
+    runtime: python
+    region: frankfurt
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"
+    healthCheckPath: /health
