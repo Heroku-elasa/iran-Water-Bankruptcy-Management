@@ -1,0 +1,138 @@
+Skip to content
+Cloudflare
+Chatgpt4compas@gmail.com's Account
+
+Add
+
+Support
+
+Profile
+Account home
+
+Recents
+Workers
+
+Compute & AI
+
+findexpert.ir
+Email
+
+findexpert.ir
+
+Workers
+
+
+Analytics & logs
+Domains
+Build
+
+Compute & AI
+Workers & Pages
+Observability
+Workers for Platforms
+Containers
+Beta
+Durable Objects
+Queues
+Workflows
+Browser Rendering
+AI Search (AutoRAG)
+Beta
+Workers AI
+AI Gateway
+VPC
+Beta
+Workers plans
+
+Storage & databases
+
+Media
+Protect & Connect
+
+Application security
+Zero Trust
+
+Networking
+
+Delivery & performance
+
+Domain registration
+
+Manage account
+Workers & Pages
+iran-water-bankruptcy-management
+Overview
+Metrics
+Deployments
+Bindings
+Observability
+Settings
+Bindings
+Add and connect external resources to your Worker without needing to manage permissions or API keys.
+
+View docs
+↗
+
+Add binding
+Connected Bindings
+iran-water-bankruptcy-management
+
+
+Binding
+
+Add binding
+
+No connected bindings
+
+Support
+System status
+Careers
+Terms of Use
+Report Security Issues
+Privacy Policy
+A blue and white pill with a checkmark and an x, representing privacy choicesCookie Preferences
+© 2025 Cloudflare, Inc.
+Add a binding
+Add and connect an external resource to your Worker application.
+
+Analytics engine
+Assets
+Browser rendering
+D1 database
+Durable Object
+Hyperdrive
+Images
+KV namespace
+mTLS certificate
+Rate limiter
+Secrets Store
+Service binding
+Vectorize index
+Version metadata
+Workers AI
+Workflow
+More to discover
+Dispatch namespace
+Queue
+R2 bucket
+D1 database
+View docs ↗
+Store relational data with serverless SQL database
+
+D1 is Cloudflare’s native serverless database enabling you to build applications that handle large amounts of users at no extra cost.
+
+type OrderRow = {
+    Id: string;
+    CustomerName: string;
+    OrderDate: number;
+};
+export default {
+  async fetch(request, env) {
+    const result = await env.MY_DB.prepare(
+        "SELECT Id, CustomerName, OrderDate FROM [Order] ORDER BY ShippedDate DESC LIMIT 100",
+    ).run<OrderRow>();
+    return new Response(JSON.stringify(result));
+  }
+}
+Cancel
+Add Binding
