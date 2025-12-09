@@ -1,5 +1,3 @@
-
-
 import React, { useState, useRef, useEffect } from 'react';
 import Sidebar from './components/Sidebar';
 import Dashboard from './components/Dashboard';
@@ -99,7 +97,7 @@ const App: React.FC = () => {
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: MessageRole.SYSTEM,
-        content: "متاسفانه ارتباط با سرور برقرار نشد. لطفاً تنظیمات API Key را بررسی کنید.",
+        content: "ارتباط با سرور هوش مصنوعی برقرار نشد. لطفاً مجددا تلاش کنید.",
         timestamp: new Date(),
       };
       setMessages((prev) => [...prev, errorMessage]);
