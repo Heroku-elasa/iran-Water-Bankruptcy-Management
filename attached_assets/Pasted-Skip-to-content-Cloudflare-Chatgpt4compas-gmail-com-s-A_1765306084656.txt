@@ -1,0 +1,88 @@
+Skip to content
+Cloudflare
+Chatgpt4compas@gmail.com's Account
+
+
+
+Workers & Pages
+iran-water-bankruptcy-management
+Overview
+Metrics
+Deployments
+Bindings
+Observability
+Settings
+Latest build failed
+ Back to builds
+Build details
+Repository
+
+Heroku-elasa/iran-Water-Bankruptcy-Management
+Status
+
+2 minutes ago
+Branch
+main
+c10a6a1
+Saved progress at the end of the loop Replit-Commit-Author: Agent Replit-Commit-Session-Id: 97c8bdfa-dfd3-40d8-8167-47c9deaf3b98 Replit-Commit-Checkpoint-Type: full_checkpoint Replit-Commit-Event-Id: 86ae9127-b644-4a1e-9771-17d34f535b12 Replit-Commit-Screenshot-Url: https://storage.googleapis.com/screenshot-production-us-central1/75b0a104-644f-4981-b3ac-a450aba5f687/97c8bdfa-dfd3-
+Duration
+50s
+Build settings
+Build command
+npm run build
+Deploy command
+npx wrangler deploy
+Root directory
+/
+Build token
+iran-water-bankruptcy-management build token
+Environment variables
+Variable name	Value
+API_KEY
+Value encrypted
+NODE_VERSION
+20
+VITE_API_KEY
+Value encrypted
+Build log
+Initializing build environment
+3s
+Cloning git repository
+2s
+Installing tools and dependencies
+13s
+Building application
+10s
+Deploying to Cloudflare's global network
+22s
+
+Download log
+
+Copy log
+22:16:11.253	  - Specify the path to the directory of assets via the command line: (ex: `npx wrangler deploy --assets=./dist`)
+22:16:11.253	  - Or create a "wrangler.jsonc" file containing:
+22:16:11.253	  
+22:16:11.253	  ```
+22:16:11.253	  {
+22:16:11.254	    "name": "worker-name",
+22:16:11.254	    "compatibility_date": "2025-12-09",
+22:16:11.254	    "assets": {
+22:16:11.254	      "directory": "./dist"
+22:16:11.256	    }
+22:16:11.256	  }
+22:16:11.256	  ```
+22:16:11.256	  
+22:16:11.256	
+22:16:11.256	
+22:16:11.256	
+22:16:11.256	Cloudflare collects anonymous telemetry about your usage of Wrangler. Learn more at https://github.com/cloudflare/workers-sdk/tree/main/packages/wrangler/telemetry.md
+22:16:11.279	🪵  Logs were written to "/opt/buildhome/.config/.wrangler/logs/wrangler-2025-12-09_18-46-10_257.log"
+22:16:11.345	Failed: error occurred while running deploy command
+Support
+System status
+Careers
+Terms of Use
+Report Security Issues
+Privacy Policy
+A blue and white pill with a checkmark and an x, representing privacy choicesCookie Preferences
+© 2025 Cloudflare, Inc.
